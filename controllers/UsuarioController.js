@@ -26,7 +26,6 @@ class UsuarioController{
 
      static async login(req, res){
       const {email, password} = req.body;
-      //verificar se o usuario existe
       const usuario = await client.usuario.findUnique({
         where: {
           email: email,
@@ -37,12 +36,10 @@ class UsuarioController{
           msg: "Usuário não encontrado!",
       })
     } 
-    //verificar se a senha esta correta
     const senhaCorreta = bcryptjs.compareSync(password, usuario.password)
     if(!senhaCorreta){
       return res.josn({msg: "Senha Incorreta!"}) 
     }
-    //emitir um token
     const token = jwt.sign({id: usuario.id}, process.env.SENHA_SERVIDOR, {expiresIn: "2h"})
     res.json({
       msg: "Autenticado!",
