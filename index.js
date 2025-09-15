@@ -8,6 +8,7 @@ app.use(express.json());
 const UsuariosRoutes = require("./routes/UsuarioRoute.js")
 app.use("/usuarios", UsuariosRoutes)
 
-app.listen(3000, (err) => {
-    console.log("aplicação rodandoem localhost:3000")
+const port = 8000
+app.listen(port, (err) => {
+    console.log(`aplicação rodandoem localhost:${port}`)
 });
