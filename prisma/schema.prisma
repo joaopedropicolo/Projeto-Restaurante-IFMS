@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   ="../generated/prisma"
 }
 
 datasource db {
@@ -8,25 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Usuario{
-id Int @id @default(autoincrement())
-nome String
-email String @unique 
-senha String
-isAdmin Boolean @default(false)
-}
-
-model Reserva{
-id Int @id @default(autoincrement())
-usuario_id: init
-mesa_id: init
-data: date
-n_pessoas: init
-status: boolean
-}
-
-model Mesa{
-id int
-codigo: string
-n_lugares: int
+model Usuario {
+  id     Int    @id @default(autoincrement())
+  nome   String
+  email  String @unique
+  senha  String
 }

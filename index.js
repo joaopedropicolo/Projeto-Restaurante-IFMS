@@ -5,9 +5,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 const UsuariosRoutes = require("./routes/UsuarioRoute.js")
-app.use("/usuarios", UsuariosRoutes)
+app.use("/", UsuariosRoutes)
 
 const port = 8000
-app.listen(port, (err) => {
-    console.log(`aplicação rodandoem localhost:${port}`)
+app.listen(port, () => {
+    console.log(`aplicação rodando em localhost:${port}`)
 });
