@@ -8,7 +8,6 @@ describe("Testes de Cadastro e Login", () => {
     password: "123456",
   };
 
-  //---------- Cadastro ----------
   test("Deve cadastrar usuário com sucesso", async () => {
     const res = await request(app)
       .post("/auth/cadastro")
@@ -36,7 +35,6 @@ describe("Testes de Cadastro e Login", () => {
     expect(res.body.msg).toBe("Nome, email e senha são obrigatórios!");
   });
 
-  //---------- Login ----------
   test("Deve autenticar usuário com credenciais corretas", async () => {
     const res = await request(app)
       .post("/auth/login")

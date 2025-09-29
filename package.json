@@ -4,7 +4,7 @@
   "description": "Uma vez Flamengo\r Sempre Flamengo\r Flamengo sempre, eu hei de ser\r É o meu maior prazer vê-lo brilhar\r Seja na terra, seja no mar\r Vencer, vencer, vencer!\r Uma vez Flamengo\r Flamengo até morrer!\r Na regata, ele me mata, me maltrata, me arrebata\r Que emoção no coração!\r Consagrado no gramado, sempre amado\r O mais cotado no Fla-Flu é o ai, Jesus!\r Eu teria um desgosto profundo\r Se faltasse o Flamengo no mundo\r Ele vibra, ele é fibra muita libra já pesou\r Flamengo até morrer eu sou!\r Uma vez Flamengo\r Sempre Flamengo\r Flamengo sempre, eu hei de ser\r É o meu maior prazer vê-lo brilhar\r Seja na terra, seja no mar\r Vencer, vencer, vencer!\r Uma vez Flamengo\r Flamengo até morrer!\r Na regata, ele me mata, me maltrata, me arrebata\r Que emoção no coração!\r Consagrado no gramado, sempre amado\r O mais cotado no Fla-Flu é o ai, Jesus!\r Eu teria um desgosto profundo\r Se faltasse o Flamengo no mundo\r Ele vibra, ele é fibra muita libra já pesou\r Flamengo até morrer eu sou!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
