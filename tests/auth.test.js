@@ -3,9 +3,9 @@ const app = require("../index");
 
 describe("Testes de Cadastro e Login", () => {
   const usuarioTeste = {
-    nome: "Teste User",
-    email: "teste@example.com",
-    password: "123456",
+    nome: "Usuario",
+    email: "usuario@gmail.com",
+    password: "1234567",
   };
 
   test("Deve cadastrar usuário com sucesso", async () => {
