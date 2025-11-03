@@ -3,14 +3,36 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "sqlite" // pode trocar por "postgresql" se usar PostgreSQL
   url      = env("DATABASE_URL")
 }
 
 model Usuario {
-  id       Int    @id @default(autoincrement())
-  nome     String
-  email    String @unique
-  password String
-  tipo     String
+  id        Int     @id @default(autoincrement())
+  nome      String
+  email     String  @unique
+  password  String
+}
+
+model Post {
+  id          Int                 @id @default(autoincrement())
+  title       String
+  categorie   CategoriesOnPost[]  // relação N:N
+}
+
+model Category {
+  id          Int                 @id @default(autoincrement())
+  name        String
+  posts       CategoriesOnPost[]  // relação N:N
+}
+
+model CategoriesOnPost {
+  post         Post     @relation(fields: [postId], references: [id])
+  postId       Int
+  category     Category @relation(fields: [categoryId], references: [id])
+  categoryId   Int
+  assignedAt   DateTime @default(now())
+  assignedBy   String
+
+  @@id([postId, categoryId]) // chave composta
 }
