@@ -3,36 +3,34 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite" // pode trocar por "postgresql" se usar PostgreSQL
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model Usuario {
-  id        Int     @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   nome      String
-  email     String  @unique
+  email     String    @unique
   password  String
+  tipo      String    @default("cliente") // cliente | adm
+  reservas  Reserva[]
 }
 
-model Post {
-  id          Int                 @id @default(autoincrement())
-  title       String
-  categorie   CategoriesOnPost[]  // relação N:N
+model Mesa {
+  id        Int       @id @default(autoincrement())
+  codigo    String
+  n_lugares Int
+  reservas  Reserva[]
 }
 
-model Category {
-  id          Int                 @id @default(autoincrement())
-  name        String
-  posts       CategoriesOnPost[]  // relação N:N
-}
+model Reserva {
+  id        Int       @id @default(autoincrement())
+  data       String
+  n_pessoas  Int
 
-model CategoriesOnPost {
-  post         Post     @relation(fields: [postId], references: [id])
-  postId       Int
-  category     Category @relation(fields: [categoryId], references: [id])
-  categoryId   Int
-  assignedAt   DateTime @default(now())
-  assignedBy   String
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
 
-  @@id([postId, categoryId]) // chave composta
+  mesa       Mesa     @relation(fields: [mesaId], references: [id])
+  mesaId     Int
 }
